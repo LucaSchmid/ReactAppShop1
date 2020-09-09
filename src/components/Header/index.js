@@ -1,14 +1,31 @@
 import React from 'react';
 import './styles.scss';
+import { Link } from 'react-router-dom';
 
-import Logo from './../../assets/logo.png';
+import Logo from './../../assets/logo_leos.png';
 
 const Header = props => {
     return (
         <header className="header">
             <div className="wrap">
-                <img src={Logo} alt="Leo's LOGO" />
+                <div className="logo">
+                    <Link to="/">
+                        <img src={Logo} alt="Leo's LOGO" />
+                    </Link>
+                </div>
+
+                <div className ="callToActions">
+                    <ul>
+                        <li>
+                            <Link to ="/registration">
+                                Register
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
+            
         </header>
     )
 }

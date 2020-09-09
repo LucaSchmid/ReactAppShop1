@@ -1,8 +1,8 @@
 import  React from 'react';
 import './styles.scss'
 
-import shopPictureLeft from './../../assets/shopPicture200x100.png'; 
-import shopPictureRight from './../../assets/Screenshot.png'; 
+import shopPictureLeft from './../../assets/gemuese.jpg'; 
+import shopPictureRight from './../../assets/markt_team.jpg'; 
 
 const Directory = props => {
     return (
@@ -13,11 +13,7 @@ const Directory = props => {
                     
                     style = {{
                     backgroundImage: `url(${shopPictureLeft})`
-                
-
                     }}
-                     
-
                 >
                     <a
                     href="/#">
@@ -34,10 +30,7 @@ const Directory = props => {
                     href="/#">
                         Anker Right
                     </a>
-
                 </div>
-                
-                
             </div>
         </div>
     );
