@@ -17,7 +17,7 @@ const Directory = props => {
                 >
                     <a
                     href="/#">
-                        Anker Left
+                        Shopping
                     </a>   
                 </div>
                 <div
@@ -28,7 +28,7 @@ const Directory = props => {
                 >
                     <a 
                     href="/#">
-                        Anker Right
+                        About us
                     </a>
                 </div>
             </div>
