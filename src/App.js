@@ -32,21 +32,21 @@ class App extends Component {
     
       if(userAuth) {
         const userRef = await handleUserProfile(userAuth);
-           userRef.onSnapshot(snapshot => {
-          this.setState({
-            currentUser: {
-            id: snapshot.id,
-            ...snapshot.data()
-         }
-      }) 
-    })
-  }
+          userRef.onSnapshot(snapshot => {
+            this.setState({
+              currentUser: {
+              id: snapshot.id,
+              ...snapshot.data()
+              }
+            }) 
+          })
+      }
 
-  this.setState({
-    ...initialState
-  })
-  });
-  }
+     this.setState({
+     ...initialState
+      })
+     });
+    }
 
   componentWillUnmount() {
   this.authListener();
@@ -61,7 +61,7 @@ class App extends Component {
             <Homepage/>
           </HomepageLayout>
         )}/>
-        <Route path="/registration" render = {() => (
+        <Route path="/registration" render = {() => currentUser ? <Redirect to="/" /> :(
           <MainLayout currentUser = {currentUser}>
             <Registration/>
           </MainLayout>
