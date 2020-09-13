@@ -2,60 +2,54 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import {auth} from './../../firebase/utils'
+import { auth } from './../../firebase/utils';
 
 import Logo from './../../assets/logo_leos.png';
 
-const Header = props => {
-    const {currentUser} = props;
-    return (
-        <header className="header">
-            <div className="wrap">
-                <div className="logo">
-                    <Link to="/">
-                        <img src={Logo} alt="Leo's LOGO" />
-                    </Link>
-                </div>
+const Header = (props) => {
+	const { currentUser } = props;
+	return (
+		<header className="header">
+			<div className="wrap">
+				<div className="logo">
+					<Link to="/">
+						<img src={Logo} alt="Leo's LOGO" />
+					</Link>
+				</div>
 
-                <div className ="callToActions">
-                    {currentUser && (
-                        <ul>
-                            <li>
-                                <span onClick={() => auth.signOut()}>
-                                    LogOut
-                                </span>
-                            </li>
-                        </ul>
-                    )}
-                    {!currentUser && (
-                        <ul>
-                            <li>
-                                <Link to ="/registration">
-                                    Register
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to ="/login">
-                                    Login
-                                </Link>
-                            </li>
-                        </ul>
-                    )}
-                </div>
-            </div>
-
-            
-        </header>
-    )
-}
+				<div className="callToActions">
+					{currentUser && (
+						<ul>
+							<li>
+								<Link to="/dashboard">My Account</Link>
+							</li>
+							<li>
+								<span onClick={() => auth.signOut()}>LogOut</span>
+							</li>
+						</ul>
+					)}
+					{!currentUser && (
+						<ul>
+							<li>
+								<Link to="/registration">Register</Link>
+							</li>
+							<li>
+								<Link to="/login">Login</Link>
+							</li>
+						</ul>
+					)}
+				</div>
+			</div>
+		</header>
+	);
+};
 
 Header.defaultProps = {
-    currentUser: null
-}
+	currentUser: null,
+};
 
-const mapStateToProps = ({user}) => ({
-    currentUser: user.currentUser
+const mapStateToProps = ({ user }) => ({
+	currentUser: user.currentUser,
 });
 
-export default connect(mapStateToProps, null) (Header);
-
+export default connect(mapStateToProps, null)(Header);

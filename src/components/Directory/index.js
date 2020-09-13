@@ -8,8 +8,7 @@ const Directory = props => {
     return (
         <div className = "directory">
             <div className = "wrap">
-                <div 
-                    className = "item"
+                <div className = "item"
                     
                     style = {{
                     backgroundImage: `url(${shopPictureLeft})`
